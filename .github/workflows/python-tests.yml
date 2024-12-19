@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  test:
+  test-glue-utils:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,4 +28,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest tests/
+          pytest
