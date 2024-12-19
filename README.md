@@ -45,7 +45,7 @@ To install the development requirements, run:
 3. **Testing**: To run the tests, use pytest:
 
    ```bash
-   pytest tests/
+   pytest
    ```
 
 ## Contributing
