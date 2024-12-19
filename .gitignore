@@ -1,0 +1,10 @@
+data/
+build/
+terraform*
+
+.venv/
+.pytest_cache/
+.idea/
+.terraform*
+
+!.terraform.lock.hcl
