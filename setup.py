@@ -11,7 +11,6 @@ setup(
     extras_require={
         "test": [
             "pytest>=7.0.0",
-            "tox>=4.0.0",
         ],
     },
     python_requires=">=3.8",
