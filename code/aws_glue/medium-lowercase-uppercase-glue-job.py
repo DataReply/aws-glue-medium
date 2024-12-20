@@ -19,10 +19,9 @@ target_path = f"s3://{args['MEDIUM_BUCKET']}/mixed-case-data/"
 source_df = spark.read.parquet(source_path)
 
 # Apply transformations
-processed_df = convert_column_to_uppercase(source_df, "product")
-processed_df = convert_column_to_lowercase(processed_df, "region")
+processed_df = convert_column_to_uppercase(source_df, "region")
+processed_df = convert_column_to_lowercase(processed_df, "product")
 
-# Write DataFrame directly this time in json format.
 processed_df.write.mode("overwrite").json(target_path)
 
 job.commit()

@@ -21,7 +21,6 @@ source_df = spark.read.csv(source_path, header=True)
 # Make product column uppercase
 processed_df = convert_column_to_uppercase(source_df, "product")
 
-# Write DataFrame directly
 processed_df.write.mode("overwrite").parquet(target_path)
 
 job.commit()

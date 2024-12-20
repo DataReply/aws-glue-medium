@@ -4,7 +4,7 @@ from pyspark.sql import SparkSession
 @pytest.fixture(scope="session")
 def spark():
     return SparkSession.builder \
-        .appName("test_spark_utils") \
+        .appName("test_glue_utils") \
         .master("local[1]") \
         .getOrCreate()
 

@@ -33,6 +33,15 @@ resource "aws_iam_policy" "glue_s3_access_policy" {
           aws_s3_bucket.glue_jobs_bucket.arn,
           "${aws_s3_bucket.glue_jobs_bucket.arn}/*"
         ]
+      },
+      {
+        Effect = "Allow"
+        Action = [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ]
+        Resource = "*"
       }
     ]
   })
@@ -44,10 +53,10 @@ resource "aws_iam_role_policy_attachment" "glue_role_policy_attachment" {
 }
 
 resource "aws_glue_job" "medium_convert_uppercase" {
-  name         = "medium-convert-uppercase"
-  role_arn     = aws_iam_role.glue_role.arn
-  glue_version = "4.0"
-  worker_type  = "G.1X"
+  name              = "medium-convert-uppercase"
+  role_arn          = aws_iam_role.glue_role.arn
+  glue_version      = "4.0"
+  worker_type       = "G.1X"
   number_of_workers = 2
 
   command {
@@ -64,10 +73,10 @@ resource "aws_glue_job" "medium_convert_uppercase" {
 }
 
 resource "aws_glue_job" "medium_convert_lowercase_uppercase" {
-  name         = "medium-convert-lowercase-uppercase"
-  role_arn     = aws_iam_role.glue_role.arn
-  glue_version = "4.0"
-  worker_type  = "G.1X"
+  name              = "medium-convert-lowercase-uppercase"
+  role_arn          = aws_iam_role.glue_role.arn
+  glue_version      = "4.0"
+  worker_type       = "G.1X"
   number_of_workers = 2
 
   command {
